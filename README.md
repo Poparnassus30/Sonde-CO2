@@ -3,7 +3,7 @@
 
 
 Logiciel permettant un relevé de données de dioxyde de carbone, présentation des éléments nécéssaire à la réalisation de la sonde:
-  - un capteur MZ 
+  - un capteur CO2 https://sandboxelectronics.com/?product=100000ppm-mh-z16-ndir-co2-sensor-with-i2cuart-5v3-3v-interface-for-arduinoraspeberry-pi&fbclid=IwAR052BKM5tVvsmTGcg-ZWIcFegqh0SS5lfPB8V4pYBOyuSZgU6xBaswT8Is
   - un écran Oled 0,90"
   - 1 raspberry pi0 1V3
   - 1 UPS battery lithium
