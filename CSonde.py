@@ -6,29 +6,11 @@ import time
 
 import datetime as dt
 
-
-def sonde_new(name):
-    MySonde = CSonde(name)
     
-    return MySonde
-
-def Sensor_extract(data):
-    #ecriture données dans fichier
-    sonde_data_path='/home/pi/SondeCo2-240824/sonde_data'
-    sonde_data_file='sonde_data.csv'
-    date=dt.date.today().strftime('%Y-%m-%d %H:%M:%S')
-
-    with open(sonde_data_path,'a') as f:
-        f.write(str(date))
-        f.write(",")
-        f.write(data)           
-        f.write("\n")
-    f.close()
-   
-        
 class Sensor(): #module NDIR sur github (version modifié par moi)
     __sonde_gps_point=[]
     __sonde_path_data='/home/pi/SondeCo2-240824/sonde_data.csv'
+    __sonde_nombre=0
     
     cmd_measure = [0xFF,0x01,0x9C,0x00,0x00,0x00,0x00,0x00,0x63]
     ppm         = 0
@@ -48,6 +30,10 @@ class Sensor(): #module NDIR sur github (version modifié par moi)
     def __init__(self, i2c_addr):
         self.i2c_addr = i2c_addr
         self.i2c      = smbus.SMBus(1)
+        self.__sonde_nombre=self.__sonde_nombre+1
+    def get_i2c_addr(self):
+        i2c_addr = self.i2c_addr
+        return i2c_addr
 
     def begin(self):
         try:
@@ -130,7 +116,7 @@ class Sensor(): #module NDIR sur github (version modifié par moi)
     def SondeCalibration(self):
         #Demarrage calibration
         self.send(0x87)
-        AffichageEcran(str(compteur),str(MaSonde.ppm),str(SondeCo2Etat),var)
+
 
     
     
