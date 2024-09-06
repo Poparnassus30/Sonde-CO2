@@ -6,6 +6,23 @@ import struct
 import sys
 import time
 
+class system_control():
+    def __init__(self):
+        self.sys_name="master"
+
+    def gpio_bilan(self):
+        #creer tableau avec taille nombre de GPIO
+        #luster les GPIO avec leur statut 
+        self.gpio_len = data=[ 'pin01' , 'pin02', 'pin03', 'pin04', 'pin05']
+
+    def gpio_set(self, id, InOut):
+        pin=('1','in')
+        self.gpio=pin
+
+    def gpio_get(self):
+        pin=self.gpio
+        return pin
+
 class UPS_battery():
     
     def __init__(self,address,bus_x):
